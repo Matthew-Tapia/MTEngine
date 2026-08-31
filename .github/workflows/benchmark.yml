@@ -1,0 +1,12 @@
+name: Benchmarks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  benchmark:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run benchmark suite
+        run: swift test --parallel
