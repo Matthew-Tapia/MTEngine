@@ -1,26 +1,27 @@
 // swift-tools-version: 6.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
     name: "MTEngine",
+    platforms: [.macOS(.v14)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "MTEngine",
-            targets: ["MTEngine"]
-        ),
+        .library(name: "PhysicsEngine", targets: ["PhysicsEngine"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "MTEngine"
+            name: "PhysicsEngine",
+            path: "Sources/PhysicsEngine"
         ),
         .testTarget(
-            name: "MTEngineTests",
-            dependencies: ["MTEngine"]
+            name: "PhysicsEngineTests",
+            dependencies: ["PhysicsEngine"],
+            path: "Tests/PhysicsEngineTests"
+        ),
+        .executableTarget(
+            name: "NBodyDemo",
+            dependencies: ["PhysicsEngine"],
+            path: "Samples",
+            sources: ["NPendulumDemo", "PhysicsDebugView"]
         ),
     ],
     swiftLanguageModes: [.v6]

@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MTEngine}",
+            "name": "Debug PhysicsDebugView",
+            "target": "PhysicsDebugView",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug PhysicsDebugView"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MTEngine}",
+            "name": "Release PhysicsDebugView",
+            "target": "PhysicsDebugView",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release PhysicsDebugView"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MTEngine}",
+            "name": "Debug NBodyDemo",
+            "target": "NBodyDemo",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug NBodyDemo"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MTEngine}",
+            "name": "Release NBodyDemo",
+            "target": "NBodyDemo",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release NBodyDemo"
+        }
+    ]
+}
