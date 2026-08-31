@@ -22,7 +22,7 @@ let package = Package(
             dependencies: ["PhysicsEngine"],
             path: "Samples",
             sources: ["NPendulumDemo", "PhysicsDebugView"]
-        ),
+        )
     ],
     swiftLanguageModes: [.v6]
 )

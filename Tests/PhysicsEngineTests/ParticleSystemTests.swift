@@ -1,5 +1,5 @@
-import XCTest
 @testable import PhysicsEngine
+import XCTest
 
 final class ParticleSystemTests: XCTestCase {
     func testParticleSystemCanBeCreated() {

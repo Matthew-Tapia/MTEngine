@@ -27,7 +27,7 @@ public struct DistanceConstraint: Constraint {
         self.restLength = restLength
     }
 
-    public func solve(particles: inout [Particle], deltaTime: Float) {
+    public func solve(particles: inout [Particle], deltaTime _: Float) {
         let pA = particles[particleA]
         let pB = particles[particleB]
 
