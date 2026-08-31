@@ -7,7 +7,7 @@ public final class ParticleSystem {
     public init() {}
 
     @discardableResult
-    public func addParticle(position: SIMD2<Float>, velocity: SIMD2<Float> = .zero, mass: Float = 1.0) -> Int {
+    public func addParticle(position: SIMD3<Float>, velocity: SIMD3<Float> = .zero, mass: Float = 1.0) -> Int {
         particles.append(Particle(position: position, velocity: velocity,
                                   inverseMass: mass > 0 ? 1 / mass : 0))
         return particles.count - 1
@@ -19,7 +19,7 @@ public final class ParticleSystem {
 
     public func step(deltaTime: Float, substeps: Int = 4) {
         let h = deltaTime / Float(substeps)
-        let gravity = SIMD2<Float>(0, -9.81)
+        let gravity = SIMD3<Float>(0, -9.81, 0)
 
         for _ in 0 ..< substeps {
             for i in 0 ..< particles.count {
