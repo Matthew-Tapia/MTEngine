@@ -14,16 +14,20 @@ enum TriplePendulumScene {
         let maxY = Float(size.height / scale) - margin
 
         let rodLength: Float = 3
-        let pivot = SIMD2<Float>((margin + maxX) / 2, maxY / 2)  // center of the canvas
-        let pivotIndex = system.addParticle(position: pivot, mass: 0)  // fixed anchor, never moves
+        let pivot = SIMD2<Float>((margin + maxX) / 2, maxY / 2) // center of the canvas
+        let pivotIndex = system.addParticle(position: pivot, mass: 0) // fixed anchor, never moves
 
         var previousIndex = pivotIndex
         var previousPosition = pivot
-        for _ in 0..<3 {
-            let angle = Float.random(in: 0..<(2 * Float.pi))
+        for _ in 0 ..< 3 {
+            let angle = Float.random(in: 0 ..< (2 * Float.pi))
             let bobPosition = previousPosition + SIMD2(cos(angle), sin(angle)) * rodLength
-            let bobIndex = system.addParticle(position: bobPosition)  // velocity defaults to .zero
-            system.addConstraint(DistanceConstraint(particleA: previousIndex, particleB: bobIndex, restLength: rodLength))
+            let bobIndex = system.addParticle(position: bobPosition) // velocity defaults to .zero
+            system.addConstraint(DistanceConstraint(
+                particleA: previousIndex,
+                particleB: bobIndex,
+                restLength: rodLength
+            ))
             previousIndex = bobIndex
             previousPosition = bobPosition
         }

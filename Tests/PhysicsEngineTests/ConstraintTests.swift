@@ -1,6 +1,6 @@
-import XCTest
-import simd
 @testable import PhysicsEngine
+import simd
+import XCTest
 
 final class ConstraintTests: XCTestCase {
     func testDistanceConstraintPullsParticlesTogether() {

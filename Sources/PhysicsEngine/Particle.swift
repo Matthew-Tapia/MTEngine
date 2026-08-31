@@ -7,7 +7,7 @@ public struct Particle {
     public var inverseMass: Float
 
     public init(position: SIMD2<Float>, velocity: SIMD2<Float>, inverseMass: Float) {
-        self.previousPosition = position
+        previousPosition = position
         self.position = position
         self.velocity = velocity
         self.inverseMass = inverseMass

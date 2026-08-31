@@ -1,5 +1,5 @@
-import SwiftUI
 import PhysicsEngine
+import SwiftUI
 
 let particleSize: CGFloat = 12
 let scale: CGFloat = 20
@@ -31,7 +31,9 @@ struct DebugView: View {
                     }
                     .onChange(of: timeline.date) { _, now in
                         let dt = Float(now.timeIntervalSince(lastFrame))
-                        system.step(deltaTime: min(dt, 1.0 / 60.0), substeps: substeps)  // clamp to avoid spiral of death on hitches
+                        system
+                            .step(deltaTime: min(dt, 1.0 / 60.0),
+                                  substeps: substeps) // clamp to avoid spiral of death on hitches
                         lastFrame = now
                     }
                 }
@@ -79,8 +81,15 @@ struct DebugView: View {
 
         for p in system.particles {
             let center = point(for: p.position)
-            context.fill(Path(ellipseIn: CGRect(x: center.x - particleSize / 2, y: center.y - particleSize / 2, width: particleSize, height: particleSize)),
-                          with: .color(.white))
+            context.fill(
+                Path(ellipseIn: CGRect(
+                    x: center.x - particleSize / 2,
+                    y: center.y - particleSize / 2,
+                    width: particleSize,
+                    height: particleSize
+                )),
+                with: .color(.white)
+            )
         }
     }
 }
