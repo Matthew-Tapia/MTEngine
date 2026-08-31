@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "MTEngine",
-    platforms: [.macOS(.v14)],
+    platforms: [.macOS(.v15), .iOS(.v18)], // RealityViewCameraContent requires macOS 15 / iOS 18
     products: [
         .library(name: "PhysicsEngine", targets: ["PhysicsEngine"])
     ],

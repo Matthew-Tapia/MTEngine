@@ -6,7 +6,7 @@ final class ConstraintTests: XCTestCase {
     func testDistanceConstraintPullsParticlesTogether() {
         var particles = [
             Particle(position: .zero, velocity: .zero, inverseMass: 1),
-            Particle(position: SIMD2<Float>(2, 0), velocity: .zero, inverseMass: 1)
+            Particle(position: SIMD3<Float>(2, 0, 0), velocity: .zero, inverseMass: 1)
         ]
         let constraint = DistanceConstraint(particleA: 0, particleB: 1, restLength: 1)
 
@@ -19,7 +19,7 @@ final class ConstraintTests: XCTestCase {
     func testDistanceConstraintPushesParticlesApart() {
         var particles = [
             Particle(position: .zero, velocity: .zero, inverseMass: 1),
-            Particle(position: SIMD2<Float>(0.5, 0), velocity: .zero, inverseMass: 1)
+            Particle(position: SIMD3<Float>(0.5, 0, 0), velocity: .zero, inverseMass: 1)
         ]
         let constraint = DistanceConstraint(particleA: 0, particleB: 1, restLength: 1)
 
@@ -32,7 +32,7 @@ final class ConstraintTests: XCTestCase {
     func testDistanceConstraintKeepsPinnedParticleInPlace() {
         var particles = [
             Particle(position: .zero, velocity: .zero, inverseMass: 0),
-            Particle(position: SIMD2<Float>(2, 0), velocity: .zero, inverseMass: 1)
+            Particle(position: SIMD3<Float>(2, 0, 0), velocity: .zero, inverseMass: 1)
         ]
         let constraint = DistanceConstraint(particleA: 0, particleB: 1, restLength: 1)
 

@@ -9,7 +9,7 @@ final class ParticleSystemTests: XCTestCase {
 
     func testParticleCanBeAdded() {
         let system = ParticleSystem()
-        let position: SIMD2<Float> = .zero
+        let position: SIMD3<Float> = .zero
         _ = system.addParticle(position: position)
         XCTAssertEqual(system.particles.count, 1)
     }
@@ -17,7 +17,7 @@ final class ParticleSystemTests: XCTestCase {
     func testAddParticleReturnsIncrementingIndices() {
         let system = ParticleSystem()
         let first = system.addParticle(position: .zero)
-        let second = system.addParticle(position: SIMD2<Float>(1, 0))
+        let second = system.addParticle(position: SIMD3<Float>(1, 0, 0))
         XCTAssertEqual(first, 0)
         XCTAssertEqual(second, 1)
     }
@@ -31,7 +31,7 @@ final class ParticleSystemTests: XCTestCase {
     func testAddConstraintIncreasesConstraintCount() {
         let system = ParticleSystem()
         let a = system.addParticle(position: .zero)
-        let b = system.addParticle(position: SIMD2<Float>(2, 0))
+        let b = system.addParticle(position: SIMD3<Float>(2, 0, 0))
         system.addConstraint(DistanceConstraint(particleA: a, particleB: b, restLength: 1))
         XCTAssertEqual(system.constraints.count, 1)
     }
